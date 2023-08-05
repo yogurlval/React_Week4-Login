@@ -10,7 +10,6 @@ module.exports = {
             console.log('ERROR IN auth middleware')
             res.sendStatus(401)
         }
-
         let token
 
         try {
