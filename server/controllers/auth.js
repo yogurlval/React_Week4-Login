@@ -2,8 +2,11 @@ require('dotenv').config()
 const SECRET = process.env.SECRET
 const jwt = require('jsonwebtoken')
 const { User } = require("../models/user");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs")
+const express = require('express');
 
+const app = express()
+app.use(express.json())
 
 const createToken = (username, id) =>{
     return jwt.sign(
@@ -16,6 +19,8 @@ const createToken = (username, id) =>{
             expiresIn: '2 days'
         }
     )
+
+    return token
 }
 module.exports = {
     login: async (req, res) => {

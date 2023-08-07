@@ -15,7 +15,7 @@ User.hasMany(Post)
 Post.belongsTo(User)
 
 app.post('/register', register)
-app.post('/login', login)
+app.post('/auth', login)
 
 app.get('/posts', getAllPosts)
 
